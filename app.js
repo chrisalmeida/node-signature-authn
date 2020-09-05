@@ -34,7 +34,7 @@ const tryCatch = (cb) => async (req, res, next) => {
  */
 app.use(
   tryCatch(async (req, _res, next) => {
-    const { headers, method, path, body = "" } = req;
+    const { headers, method, path, body = {} } = req;
     const headerApiKey = headers["x-api-key"];
     const headerSignature = headers["x-api-signature"];
     const headerTimestamp = headers["x-api-timestamp"];
