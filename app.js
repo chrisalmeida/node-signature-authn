@@ -55,15 +55,15 @@ app.use(
       .update(`${headerTimestamp}${method}${path}${JSON.stringify(body)}`)
       .digest("hex");
 
-    const a = Buffer.from(headerSignature);
-    const b = Buffer.from(newSignature);
+    const signatureA = Buffer.from(headerSignature);
+    const signatureB = Buffer.from(newSignature);
 
     // Signature lengths don't match, bail early.
-    if (a.length !== b.length) {
+    if (signatureA.length !== signatureB.length) {
       throw new BadSignatureError();
     }
 
-    const isValidSignature = crypto.timingSafeEqual(a, b);
+    const isValidSignature = crypto.timingSafeEqual(signatureA, signatureB);
     if (!isValidSignature) throw new BadSignatureError();
 
     req.application_id = application.id;
