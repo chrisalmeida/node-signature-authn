@@ -30,7 +30,7 @@ const tryCatch = (cb) => async (req, res, next) => {
 };
 
 /**
- * Signature Authentication Middelware
+ * Signature Authentication Middleware
  */
 app.use(
   tryCatch(async (req, _res, next) => {
