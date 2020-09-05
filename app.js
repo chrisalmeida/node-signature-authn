@@ -96,7 +96,7 @@ app.use((err, _req, res, _next) => {
   console.error({
     stack: err.stack,
     error: err,
-    timetstamp: new Date().toISOString(),
+    timestamp: new Date().toISOString(),
   });
 
   // NOTE: Default error is 500
