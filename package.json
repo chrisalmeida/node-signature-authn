@@ -5,8 +5,9 @@
   "scripts": {
     "start": "node ./bin/www",
     "dev": "./node_modules/.bin/nodemon",
-    "migrate": "./node_modules/.bin/knex migrate:latest",
-    "rollback": "./node_modules/.bin/knex migrate:rollback"
+    "db:migrate": "./node_modules/.bin/knex migrate:latest",
+    "db:rollback": "./node_modules/.bin/knex migrate:rollback",
+    "db:seed": "./node_modules/.bin/knex seed:run"
   },
   "dependencies": {
     "cookie-parser": "~1.4.4",
