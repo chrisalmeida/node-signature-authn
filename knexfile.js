@@ -1,7 +1,7 @@
 module.exports = {
   client: "pg",
   connection: {
-    database: "identifi_api_dev",
+    database: process.env.PGDBNAME,
     user: process.env.PGUSER,
     password: process.env.PGPASSWORD,
     timezone: "utc",
