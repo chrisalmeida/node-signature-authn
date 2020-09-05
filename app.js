@@ -63,11 +63,7 @@ app.use(
       throw new BadSignatureError();
     }
 
-    const isValidSignature = crypto.timingSafeEqual(
-      Buffer.from(headerSignature),
-      Buffer.from(newSignature)
-    );
-
+    const isValidSignature = crypto.timingSafeEqual(a, b);
     if (!isValidSignature) throw new BadSignatureError();
 
     req.application_id = application.id;
