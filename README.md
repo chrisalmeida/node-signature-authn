@@ -6,7 +6,7 @@ An express.js signature authentication implementation using node, postgres and h
 
 This project aims to provide a simple and secure example of API HMAC signature authentication using common and open source technologies.
 
-Vault will used so that an application's credentials can remain encrypted in transit or at rest.
+Vault will be used so that an application's credentials can remain encrypted in transit or at rest.
 
 The following API uses [knex](http://knexjs.org/) so that Postgres can easily be swapped out for MySQL or SQLite if desired.
 
