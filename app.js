@@ -41,6 +41,15 @@ app.use(
 
     if (!headerApiKey || !headerSignature || !headerTimestamp)
       throw new BadSignatureError();
+    
+    // Allow 10 seconds for signature TTL
+    const timeNow = Math.floor(Date.now() / 1000)
+    const timeDiff = headerTimestamp - timeNow
+    const isSignatureExpired = timeDiff < 0 || timeDiff >= 10
+    
+    if (isSignatureExpired) {
+      throw new BadSignatureError("The signature provided has expired.");
+    }
 
     const application = await db.findApplicationByAPIKey(headerApiKey);
 
